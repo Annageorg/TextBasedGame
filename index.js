@@ -72,7 +72,7 @@ class Item {
 
 class Character{
     constructor (id1, id2, id3){
-        this._name = id1;              //the _ is that this is private, it could be name
+        this._name = id1;              //the _ means that this is private, it could be .name
         this._description = id2;
         this._conversation = id3;
     }
