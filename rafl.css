@@ -1,0 +1,48 @@
+* {
+    font-family: 'Signika';
+} 
+body{
+  background-image: url("pics/superMario.gif");
+  background-size: cover;
+  position: relative;
+}
+body::after{
+  content: "";
+  background:rgba(8, 8, 8, 0.5);
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 2;
+  width: 2000px;
+  height: 2000px;
+}
+h1{
+  color: rgb(203, 202, 204);
+  font-weight: bolder;
+  font-size: xxx-large;
+}
+p{
+  font-size: large;
+}
+
+#midBox{
+  text-align: center;
+  color: azure;
+}    
+#quizArea{
+  position: absolute;
+  margin: auto;
+  top: 1000px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height:400px;
+  width:800px;
+  background-color: rgba(8, 8, 8, 0.95);
+  border-radius: 3px;
+  z-index: 1;
+}
+#question1, #question2, #results {
+  display:none;
+  width:750px;
+}
