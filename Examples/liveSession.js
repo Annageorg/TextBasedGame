@@ -3,6 +3,7 @@ class Room {
         this._name = id1;              //the _ is that this is private, it could be name
         this._description = id2;
         this._linkedRooms = {};
+        this._linkedItems = {};
     }
     get name(){
         return "This is the " + this._name;
@@ -38,6 +39,16 @@ class Room {
             return this;
         }
     }
+    linkItem (room, itemLinked){
+        this._linkedItems[room]=itemLinked;
+    }
+    interact(consume){
+        if (consume in this._linkedItems){
+            return this._linkedItems[room];
+        } else {
+            alert("No ietms in this room")
+        }
+    }
 }
 
 class Item {
@@ -46,7 +57,7 @@ class Item {
         this._description = id2;
     }
     get name(){
-        return "This is" + this._name;
+        return this._name;
     }
     get description(){
         return "It is a " + this._description;
@@ -108,7 +119,9 @@ const livingRoom = new Room ('living room', 'main room of the house');
 const kitchen = new Room ('Kitchen', 'where the food is cooked');
 const office = new Room ('Office', 'where serious studying happens');
 const bedroom = new Room ('Bedroom', 'where you can sleep');
+const armor = new Item('armor', 'mithril');
 
+hall.linkItem(hall, armor);
 hall.linkRoom('west', kitchen);
 kitchen.linkRoom('east',hall);
 hall.linkRoom('east', office);
@@ -141,12 +154,13 @@ function startGame(){
             }
             document.getElementById("userText").value = "";
         }
+        
     })
 }
 
 
 
-// startGame();
+startGame();
 
 
 
