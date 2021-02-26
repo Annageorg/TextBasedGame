@@ -53,6 +53,6 @@ class Room {
         alert ("You can't go that way",);
         return this;
     }
-}
+    }
 }
 

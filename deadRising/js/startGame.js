@@ -2,10 +2,8 @@ function playerInput(pValue){
     pValue = pValue.split(" ");
     let command = pValue[0];
     if ( commands.includes(command) ){
-        if (command == "go"){
-            
+        if (command == "go"){            
             changeRoom(pValue[1]);
-
         } else if (command == "help"){
             showhelp();
         } else if (command == "inventory"){
