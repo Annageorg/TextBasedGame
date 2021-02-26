@@ -18,6 +18,7 @@ function changeRoom(dir){
     if ( directions.includes(dir) ){
         currentRoom = currentRoom.move(dir)
         displayRoomInfo(currentRoom);
+        return;
     } 
 }
 

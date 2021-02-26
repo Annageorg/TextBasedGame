@@ -14,7 +14,7 @@ fastLink(morgue, psych, 'west', 'east');
 fastLink(morgue, exit, 'east', 'west');
 
 //link items to rooms
-sideWard.items
+sideWard.linkItems(sideWard, boltCutters)
 //link characters to rooms
 
 
