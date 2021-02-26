@@ -27,7 +27,7 @@ class Room {
     }
 
     describe() {
-        return this._intro + this._name + this._description;
+        return this.intro + this.name + this.description;
     }
     linkRoom(direction, roomToLink) {
         this._linkedRooms[direction] = roomToLink;

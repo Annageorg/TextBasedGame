@@ -1,4 +1,4 @@
-//creating rooms, characters, items and linking them
+//creating rooms, characters, and items
 
 //create rooms
 const sideWard = new Room("hospital room");
@@ -29,10 +29,10 @@ bodies laying around, but oooh no... Their brains are missing!!!</p>
 <p>I would leave this room if I were you, but what are you gonna do?</p>`;
 
 const xray = new Room("X-Ray");
-xray.intro = `<p>Well done, you entered a new room</p> You are now in the `
-xray.description = `<p>There are strange chairs dotted around, you see some 
-bodies laying around, but oooh no... Their brains are missing!!!</p>
-<p>I would leave this room if I were you, but what are you gonna do?</p>`;
+xray.intro = `<p>That was tricky, but you did it!</p> You managed to enter the `
+xray.description = `<p>There is a lot of equipment around, even some weird glow to 
+some items...</p>
+<p>It is advised to not touch anything. What are the next steps?</p>`;
 
 const droffice = new Room("Dr Strange office");
 const morgue = new Room("morgue");
@@ -40,18 +40,5 @@ const psych = new Room("Psychiatric ward");
 const exit = new Room("Exit");
 
 
-//linking rooms
-function fastLink(room1, room2, dir1, dir2){
-    room1.linkRoom(dir1, room2);
-    room2.linkRoom(dir2, room1);
-}
 
-fastLink(sideWard, ane, 'south', 'north');
-fastLink(ane, cafe, 'east', 'west');
-fastLink(cafe, neuro, 'east', 'west');
-fastLink(cafe, xray, 'north', 'south');
-fastLink(xray, droffice, 'east', 'west');
-fastLink(xray, morgue, 'north', 'south');
-fastLink(morgue, psych, 'west', 'east');
-fastLink(morgue, exit, 'east', 'west');
 
