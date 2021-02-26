@@ -1,18 +1,7 @@
-function playerInput(pValue){
-    pValue = pValue.split(" ");
-    let command = pValue[0];
-    if ( commands.includes(command) ){
-        if (command == "go"){
-            changeRoom(pValue[1]);
-        } else if (command == "help"){
-            showhelp();
-        } else if (command == "inventory"){
-            showbag();
-        }
-    } else {
-        alert("That is not a valid command please try again");
-    }      
-}
+let currentRoom = sideWard;
+const commands = ["go", "search", "take", "inventory", "talk", "attack", "help"]
+const directions = ["west","east","north","south"];
+let bag = [];
 
 function changeRoom(dir){
     if ( directions.includes(dir) ){
@@ -27,8 +16,6 @@ function displayRoomInfo(room){
     document.getElementById("text").innerHTML = textContent;
     document.getElementById("userText").focus();
 }
-
-
 
 function showhelp(){
     let msg = "<p>Here are the possible commands: </p><ul>"
@@ -50,6 +37,7 @@ function showbag(){
         msg = "<p>You are not carrying anything</p>"
         msg += "<p>...Press escape to go back to the room</p>"
         document.getElementById("text").innerHTML = msg;
+        document.getElementById("userText").focus();
     } else {
         let msg = "<p>Here are your items: </p><ul>"
     for (let i=0; i<bag.length; i++){
@@ -57,11 +45,44 @@ function showbag(){
     }
     msg += "</ul>" + "<p>...Press escape to go back to the room</p>"
     document.getElementById("text").innerHTML = msg;
-    }    
+    document.getElementById("userText").focus();
+    }
+
     document.addEventListener("keydown", function(event){
         if (event.key === "Escape"){
             displayRoomInfo(currentRoom);
         }
         
+    })
+}
+
+function displayItemInfo(room){
+    if (room.items != null){
+        const textContent = room.items.describe();
+        document.getElementById("text").innerHTML = textContent;
+        document.getElementById("userText").focus();
+        document.addEventListener("keydown", function(event){
+            if (event.key === "Escape"){
+                displayRoomInfo(currentRoom);
+            }        
+        })
+    } else {
+        msg = "<p>There are no items here</p>"
+        document.getElementById("text").innerHTML = msg;
+        document.getElementById("userText").focus();
+    }
+}
+
+function takeItems (currentRoom){
+    bag.push(currentRoom.items.name);
+    msg = "<p>You picked up the " + currentRoom.items.name +"</p>"
+    msg += "<p>...Press escape to go back to the room</p>"
+    document.getElementById("text").innerHTML = msg;
+    document.getElementById("userText").focus();
+
+    document.addEventListener("keydown", function(event){
+        if (event.key === "Escape"){
+            displayRoomInfo(currentRoom);
+        }        
     })
 }

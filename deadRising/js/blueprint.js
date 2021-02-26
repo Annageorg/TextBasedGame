@@ -14,8 +14,9 @@ Terrified you look around and see blood all over the walls. You are in the `
 ane.description = `<p>This seems like an A&E, but not quite, something is not
 right. It is very dark and you can't see much around</p>
 <p>How will you proceed in this room?</p>`;
+ane.key = "open"
 
-const cafe = new Locked("cafeteria");
+const cafe = new Room("cafeteria");
 cafe.intro = `<p>Did you manage to talk to the weird character Bob, did you understand
 what he was on about? He did mention something, but only you can know if it was 
 important.</p> You are now in the `
@@ -41,8 +42,8 @@ const psych = new Room("Psychiatric ward");
 const exit = new Room("Exit");
 
 //create items
-const boltCutters = new Item("bolt cutters");
-boltCutters.description = "great tool to go through locked doors"
+const boltCutters = new Item("boltCutters");
+boltCutters.description = "as a tool to go through locked doors"
 
 
 

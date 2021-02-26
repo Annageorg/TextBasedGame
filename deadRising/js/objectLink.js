@@ -14,22 +14,6 @@ fastLink(morgue, psych, 'west', 'east');
 fastLink(morgue, exit, 'east', 'west');
 
 //link items to rooms
-sideWard.linkItems(sideWard, boltCutters)
+sideWard.items = boltCutters;
+
 //link characters to rooms
-
-
-
-// function displayCharInfo(char){
-//     const textContent = room.describe();
-//     document.getElementById("text").innerHTML = textContent;
-// }
-
-// function displayItemInfo(item){
-//     const textContent = room.describe();
-//     document.getElementById("text").innerHTML = textContent;
-// }
-
-// function displayInventory(inv){
-//     const textContent = room.describe();
-//     document.getElementById("text").innerHTML = textContent;
-// }
