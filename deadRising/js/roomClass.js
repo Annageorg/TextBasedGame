@@ -4,6 +4,7 @@ class Room {
         this._intro = "";      
         this._description = "";
         this._linkedRooms = {};
+        this._items = {};
     }
 
     get name() {
@@ -36,9 +37,28 @@ class Room {
         if (direction in this._linkedRooms) {
             return this._linkedRooms[direction];
         } else {
-            alert ("You try but the door cannot open");
+            alert ("Seems you can't go that way");
             return this;
         }
+    }
+    linkItems(roomToPlace, item){
+        this._items[roomToPlace] = item;
+    }
+    show(){
+        
+    }
+}
+
+class Locked extends Room {
+    constructor(name){
+        super(name);
+        this._key = "";
+    }
+    get key(){
+        return this._key;
+    }
+    set key(value) {
+        this._key = value;
     }
 }
 

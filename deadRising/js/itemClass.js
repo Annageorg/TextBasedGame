@@ -1,7 +1,8 @@
 class Item {
-    constructor (id1, id2){
+    constructor (id1){
         this._name = id1;              
-        this._description = id2;
+        this._description = "";
+        // this._placed = {};
     }
     get name(){
         return this._name;
@@ -26,4 +27,5 @@ class Item {
     describe() {
         return "You found " + this._name + " and is " + this._description;
     }
+
 }

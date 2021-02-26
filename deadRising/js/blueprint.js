@@ -9,18 +9,19 @@ are flickering, and you can't hear the usual hospital sounds. You can see
 two doors to the east and south.</p><p>What do you want to do?</p>`;
 
 const ane = new Room("A&E");
-ane.intro = `<p>After a lot of tries you managed to open the door</p>
+ane.intro = `<p>After maybe a lot of tries you managed to open the door</p>
 Terrified you look around and see blood all over the walls. You are in the `
 ane.description = `<p>This seems like an A&E, but not quite, something is not
 right. It is very dark and you can't see much around</p>
 <p>How will you proceed in this room?</p>`;
 
-const cafe = new Room("cafeteria");
+const cafe = new Locked("cafeteria");
 cafe.intro = `<p>Did you manage to talk to the weird character Bob, did you understand
 what he was on about? He did mention something, but only you can know if it was 
 important.</p> You are now in the `
 cafe.description = `<p>The lights are so much better in this place.</p>
 <p>What's next?</p>`;
+cafe.key = "boltCutters"
 
 const neuro = new Room("neurology");
 neuro.intro = `<p>Well done, you entered a new room</p> You are now in the `
@@ -39,6 +40,9 @@ const morgue = new Room("morgue");
 const psych = new Room("Psychiatric ward");
 const exit = new Room("Exit");
 
+//create items
+const boltCutters = new Item("bolt cutters");
+boltCutters.description = "great tool to go through locked doors"
 
 
 
