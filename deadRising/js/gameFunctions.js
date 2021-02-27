@@ -14,15 +14,27 @@ function changeRoom(room,dir){
             } else{
                 alert("You need something to open the door");
             };
-        } else if (room == cafe && dir == "east"){
-            let outcome = fight(pHealth, neuro);
+        } else if (room == morgue && dir == "west"){
+            let outcome = fight(pHealth, psych);
                 if (outcome){
                     currentRoom = currentRoom.move(dir)
                     displayRoomInfo(currentRoom);
                 } else {
-                    alert (`You were attacked and lost the fight. Game over!!
-                    Refresh the page to try again`);
-                }
+                    alert (`You were attacked and lost the fight. Game over!! Refresh the page to try again`);
+                };
+
+        } else if (room == morgue && dir == "east") {
+            let key1 = "Moon key";
+            let key2 = "Sun key";
+            if ( bag.includes(key1) && bag.includes(key2) ){
+                msg = `You see the exit at the end of the room, you use the special keys you found and 
+                the door opens. `
+                alert("CONGRATULATIONS, YOU WON THE GAME")
+                document.getElementById("text").innerHTML = msg;
+            }else{
+                alert(`YOU LOST, you didn't have the keys to unlock the door and the zombies finally caught up.
+                Refresh the page to try again!`)
+            }
 
         } else {
             currentRoom = currentRoom.move(dir)
@@ -91,9 +103,10 @@ function takeItems (room){
         msg = "<p>You picked up the " + currentRoom.items.name +"</p>"
         msg += "<p>...Press escape to go back to the room</p>"
         document.getElementById("text").innerHTML = msg;
-        if (room.items.effect){
+            if (room.items.effect){
             pHealth += room.items.effect;
-        }
+            console.log(pHealth)
+            }
     } else {
         msg = "<p>There are no items here</p>"
         document.getElementById("text").innerHTML = msg;
