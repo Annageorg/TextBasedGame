@@ -14,20 +14,20 @@ Terrified you look around and see blood all over the walls. You are in the `
 ane.description = `<p>This seems like an A&E, but not quite, something is not
 right. It is very dark and you can't see much around</p>
 <p>How will you proceed in this room?</p>`;
-ane.key = "open"
+
 
 const cafe = new Room("cafeteria");
-cafe.intro = `<p>Did you manage to talk to the weird character Bob, did you understand
-what he was on about? He did mention something, but only you can know if it was 
-important.</p> You are now in the `
+cafe.intro = `<p>That was tricky, hopefully you didn't make too much
+noise trying to open the door, you don't want to do that! Dangerous 
+things might be lurking in the shadows!</p> You are now in the `
 cafe.description = `<p>The lights are so much better in this place.</p>
 <p>What's next?</p>`;
-cafe.key = "boltCutters"
+cafe.key = "bolt cutters"
 
 const neuro = new Room("neurology");
 neuro.intro = `<p>Well done, you entered a new room</p> You are now in the `
 neuro.description = `<p>There are strange chairs dotted around, you see some 
-bodies laying around, but oooh no... Their brains are missing!!!</p>
+bodies laying around, but... Their brains are missing!!!</p>
 <p>I would leave this room if I were you, but what are you gonna do?</p>`;
 
 const xray = new Room("X-Ray");
@@ -42,8 +42,25 @@ const psych = new Room("Psychiatric ward");
 const exit = new Room("Exit");
 
 //create items
-const boltCutters = new Item("boltCutters");
+const boltCutters = new Item("bolt cutters");
 boltCutters.description = "as a tool to go through locked doors"
+
+//create characters
+const bob = new Character("Bob");
+bob.intro =`You look around and see a character called `
+bob.description = `<p>He looks like a weird character, he doesn't seem he might
+attack you. He looks like he wants to say something`
+bob.conversation = `<p>Nice to see another one alive in these damned walls. Things
+got scary mate. I don't know what is happening, but one thing I know, is that if you stumble 
+upon a strange Doctor, don't make any sudden moves! Farewell, hope you manage to escape!</p>`
+
+const zombie = new Enemy("zombie");
+zombie.intro = `<p>When you opened the door, something attacked you. It seems that the armour 
+you picked in the previous rooms protected you from massive damage.</p> 
+You won the fight and saw that you fought a `
+zombie.description = `<p>It looks a semi-dead, semi-alive thing that resembles a human being. 
+All its clothes are shredded and you can see some bloodied bite marks all over his body.</p>`
+zombie.health = 9;
 
 
 

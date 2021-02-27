@@ -282,7 +282,8 @@ class Room {
     if (room.character === "") {
       occupantMsg = ""
     } else {
-      occupantMsg = room.character.describe() + ". " + room.character.converse()
+      occupantMsg = room.character.describe() + ". " 
+      + room.character.converse()
     }
   
     textContent = "<p>" + room.describe() + "</p>" + "<p>" +

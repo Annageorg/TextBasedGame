@@ -6,6 +6,7 @@ class Room {
         this._linkedRooms = {};
         this._items = "";
         this._key = "";
+        this._char = "";
     }
 
     get name() {
@@ -23,6 +24,9 @@ class Room {
     get key(){
         return this._key;
     }
+    get char() {
+        return this._char;
+    }
     
     set name(value) {
         this._name = value;
@@ -38,6 +42,9 @@ class Room {
     }
     set key(value) {
         this._key = value;
+    }
+    set char(value) {
+        this._char = value;
     }
 
     describe() {

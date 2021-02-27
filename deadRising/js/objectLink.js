@@ -17,3 +17,5 @@ fastLink(morgue, exit, 'east', 'west');
 sideWard.items = boltCutters;
 
 //link characters to rooms
+cafe.char = bob;
+neuro.char = zombie;
