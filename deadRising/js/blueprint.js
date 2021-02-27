@@ -4,9 +4,11 @@
 const sideWard = new Room("hospital room");
 sideWard.intro = `<p>You are finally awake!!! How much time has passed?
 years? months? weeks?</p> You look around and you are in a `
-sideWard.description = `<p>It is completely empty, the lights in the room
-are flickering, and you can't hear the usual hospital sounds. You can see
-two doors to the east and south.</p><p>What do you want to do?</p>`;
+sideWard.description = `<p>Your goal is to escape the hospital before the 
+zombies catch up. By typing your commands you can move around rooms(directions 
+include <b>south west east north </b>), search for items, store them, talk to 
+characters, or engage in combat. To see the available commands type <b>help</b></p>
+<p>GOOD LUCK!</p>`;
 
 const ane = new Room("A&E");
 ane.intro = `<p>After maybe a lot of tries you managed to open the door</p>
