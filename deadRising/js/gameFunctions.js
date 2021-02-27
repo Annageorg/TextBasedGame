@@ -48,16 +48,13 @@ function displayRoomInfo(room){
 
 function showhelp(){
     let msg = "<p>Here are the possible commands: </p><ul>"
-    for (let i=0; i<commands.length; i++){
-        msg += "<li>" +  commands[i] + "</li>"
-    }
+
+        for (let i=0; i<commands.length; i++){
+            msg += "<li>" +  commands[i] + "</li>"
+        };
+
     msg += "</ul>" + "<p>...Press escape to go back to the room</p>"
     document.getElementById("text").innerHTML = msg;
-    document.addEventListener("keydown", function(event){
-        if (event.key === "Escape"){
-            displayRoomInfo(currentRoom);
-        }        
-    })
 }
 
 function showbag(){
@@ -65,54 +62,43 @@ function showbag(){
         msg = "<p>You are not carrying anything</p>"
         msg += "<p>...Press escape to go back to the room</p>"
         document.getElementById("text").innerHTML = msg;
-        document.getElementById("userText").focus();
     } else {
         let msg = "<p>Here are your items: </p><ul>"
-    for (let i=0; i<bag.length; i++){
-        msg += "<li>" +  bag[i] + "</li>"
-    }
-    msg += "</ul>" + "<p>...Press escape to go back to the room</p>"
-    document.getElementById("text").innerHTML = msg;
-    document.getElementById("userText").focus();
-    }
 
-    document.addEventListener("keydown", function(event){
-        if (event.key === "Escape"){
-            displayRoomInfo(currentRoom);
-        }
-        
-    })
+        for (let i=0; i<bag.length; i++){
+            msg += "<li>" +  bag[i] + "</li>"
+        };
+
+        msg += "</ul>" + "<p>...Press escape to go back to the room</p>"
+        document.getElementById("text").innerHTML = msg;
+    };
 }
 
 function displayItemInfo(room){
-    if (room.items != null){
-        const textContent = room.items.describe();
-        document.getElementById("text").innerHTML = textContent;
+    if (room.items){
+        let msg = room.items.describe();
+        document.getElementById("text").innerHTML = msg;
         document.getElementById("userText").focus();
-        document.addEventListener("keydown", function(event){
-            if (event.key === "Escape"){
-                displayRoomInfo(currentRoom);
-            }        
-        })
     } else {
         msg = "<p>There are no items here</p>"
         document.getElementById("text").innerHTML = msg;
-        document.getElementById("userText").focus();
     }
 }
 
-function takeItems (currentRoom){
-    bag.push(currentRoom.items.name);
-    msg = "<p>You picked up the " + currentRoom.items.name +"</p>"
-    msg += "<p>...Press escape to go back to the room</p>"
-    document.getElementById("text").innerHTML = msg;
-    document.getElementById("userText").focus();
-
-    document.addEventListener("keydown", function(event){
-        if (event.key === "Escape"){
-            displayRoomInfo(currentRoom);
-        }        
-    })
+function takeItems (room){
+    if (room.items){
+        bag.push(room.items.name);
+        msg = "<p>You picked up the " + currentRoom.items.name +"</p>"
+        msg += "<p>...Press escape to go back to the room</p>"
+        document.getElementById("text").innerHTML = msg;
+        if (room.items.effect){
+            pHealth += room.items.effect;
+        }
+    } else {
+        msg = "<p>There are no items here</p>"
+        document.getElementById("text").innerHTML = msg;
+            
+    }
 }
 
 function talkTo (room){

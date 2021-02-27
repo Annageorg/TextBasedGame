@@ -23,7 +23,6 @@ function playerInput(pValue){
 function startGame(){
     if (state = true){
         displayRoomInfo(currentRoom);  
-
         document.addEventListener("keydown", function(event){
             if (event.key === "Enter"){
                 let input = document.getElementById("userText").value.toLowerCase();
@@ -32,6 +31,12 @@ function startGame(){
                 return;
             }    
         });
+
+        document.addEventListener("keydown", function(event){
+            if (event.key === "Escape"){
+                displayRoomInfo(currentRoom);
+            }        
+         });
 
     } else {
         alert("You lost refresh the page to try again")

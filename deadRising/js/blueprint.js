@@ -22,10 +22,10 @@ noise trying to open the door, you don't want to do that! Dangerous
 things might be lurking in the shadows!</p> You are now in the `
 cafe.description = `<p>The lights are so much better in this place.</p>
 <p>What's next?</p>`;
-cafe.key = "bolt cutters"
+cafe.key = "Bolt cutters"
 
 const neuro = new Room("neurology");
-neuro.intro = `<p>Well done, you entered a new room</p> You are now in the `
+neuro.intro = `You are now in the `
 neuro.description = `<p>There are strange chairs dotted around, you see some 
 bodies laying around, but... Their brains are missing!!!</p>
 <p>I would leave this room if I were you, but what are you gonna do?</p>`;
@@ -37,13 +37,31 @@ some items...</p>
 <p>It is advised to not touch anything. What are the next steps?</p>`;
 
 const droffice = new Room("Dr Strange office");
+droffice.intro = `You entered `
+droffice.description = `<p>You can look around, it is well lit, but.. </p>`;
+
 const morgue = new Room("morgue");
+morgue.intro = `You entered the dreadful `
+morgue.description = `<p>There might be some important items around... or maybe not </p>`;
+
 const psych = new Room("Psychiatric ward");
+psych.intro = `You entered `
+psych.description = `<p>There are definately some important items here!</p>`;
+
 const exit = new Room("Exit");
+exit.intro = `You entered `
+exit.description = `<p>There are definately some important items here!</p>`;
 
 //create items
-const boltCutters = new Item("bolt cutters");
+const boltCutters = new Item("Bolt cutters");
 boltCutters.description = "as a tool to go through locked doors"
+
+const armour = new Item("Armor");
+armour.description =  "Full-body military grade armour";
+armour.effect = 5;
+
+const sunKey = new Item("Key");
+sunKey.description = "with unlocking an important door"
 
 //create characters
 const bob = new Character("Bob");
@@ -60,7 +78,14 @@ you picked in the previous rooms protected you from massive damage.</p>
 You won the fight and saw that you fought a `
 zombie.description = `<p>It looks a semi-dead, semi-alive thing that resembles a human being. 
 All its clothes are shredded and you can see some bloodied bite marks all over his body.</p>`
-zombie.health = 9;
+zombie.health = 12;
+
+const dr = Enemy("The Doctor");
+dr.intro = `You see a strange character in front of you, his name is `
+dr.description = `<p>He is not interested in what you are doing and doesn't want to talk either.</p>
+<p>What do you want to do?</p>`
+dr.health = 100000000;
+
 
 
 
