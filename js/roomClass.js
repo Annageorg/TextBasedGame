@@ -4,7 +4,9 @@ class Room {
         this._intro = "";      
         this._description = "";
         this._linkedRooms = {};
-        this._items = {};
+        this._items = "";
+        this._key = "";
+        this._char = "";
     }
 
     get name() {
@@ -16,7 +18,16 @@ class Room {
     get description() {
         return this._description;
     }
-
+    get items(){
+        return this._items;
+    }
+    get key(){
+        return this._key;
+    }
+    get char() {
+        return this._char;
+    }
+    
     set name(value) {
         this._name = value;
     }
@@ -26,6 +37,15 @@ class Room {
     set description(value) {
         this._description = value;
     }
+    set items(value){
+        this._items = value;
+    }
+    set key(value) {
+        this._key = value;
+    }
+    set char(value) {
+        this._char = value;
+    }
 
     describe() {
         return this.intro + this.name + this.description;
@@ -33,32 +53,13 @@ class Room {
     linkRoom(direction, roomToLink) {
         this._linkedRooms[direction] = roomToLink;
     }
-    move (direction) {
-        if (direction in this._linkedRooms) {
-            return this._linkedRooms[direction];
-        } else {
-            alert ("Seems you can't go that way");
-            return this;
-        }
+    move(direction) {
+    if (direction in this._linkedRooms) {
+        return this._linkedRooms[direction];
+    } else {
+        alert ("You can't go that way",);
+        return this;
     }
-    linkItems(roomToPlace, item){
-        this._items[roomToPlace] = item;
-    }
-    show(){
-        
-    }
-}
-
-class Locked extends Room {
-    constructor(name){
-        super(name);
-        this._key = "";
-    }
-    get key(){
-        return this._key;
-    }
-    set key(value) {
-        this._key = value;
     }
 }
 
