@@ -19,3 +19,5 @@ To manipulate your character you can type the following commands:
 
 Watch out! To successfully exit the hospital you might need some special items. 
 Good luck!
+
+The level layout ![Image of DeadRising Game](https://github.com/Annageorg/TextBasedGame/blob/main/pics/Dead%20Rising%20Blueprint.png)
